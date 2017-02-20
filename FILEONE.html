@@ -1,34 +1,56 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html>
-    <head>
-        
-        <title>article One</title>
-        <meta name="viewport" content="width-device-width, initial scale-one"/>
-        <style>
-            .container{
-                max-width:100px;
-                right-padding:20px;
-                margin:10px;
-                color:"green";
-            }
-        </style>
-    
-    </head>
-    <body>
-        <div class="container">
-            
-       
-        <div><a href="/">Home</a></div>
-        <hr>
-        <div>Jan,2017</div>
-        <hr>
-        <div>
-            <p>
-            Madhuri Dixit, also known by her married name Madhuri Dixit Nene, is an Indian actress who is known for her work in Hindi cinema Dixit has been praised by critics for her acting and dancing skills.
-            </p>
-            
-        </div>
-         </div>
-    </body>
-    
+<head>
+<style type="text/css">
+div#memory_board {
+background:#ccc;
+border:#999 1px solid;
+width:800px;
+height:540px;
+padding:24px;
+margin:0px auto;
+}
+div#memory_board > div{
+background: url(title_bg.jpg) no-repeat:
+border:#000 1px solid;
+width:71px;
+height:71px;
+float:left;
+margin:10px;
+padding:20px:
+font-size:64px;
+cursor:pointer;
+text-align:centre;
+}
+</style>
+<script>
+var memory_array=['A','A','B','B','C','C','D','D','E','E','F','F','G','G','H','I','I','J','J','K','K','L','L'];
+var memory_values=[];
+var memory_tile_ids=[];
+var tiles_flipped=0;
+Array.prototype.memory_tile_shuffle=function(){
+var i=this.length,j,temp;
+while (--i> 0){
+j =Math.floor(Math.random() * (i+1));
+temp=this[j];
+this[j]=this[i];
+this[i]=temp;
+}
+}
+function newBoard(){
+tiles_flipped=0;
+var output='';
+memory_array.memory_tile_shuffle();
+for(var i=0;i<memory_array.length; i++){
+output +='<div id="tile_'+i+'" onclick="memooryFlipTile(this,\''+memory_array+'\')"></div>';
+}
+document.getElementById('memory_board').innerHTML =output;
+
+</script>
+</head>
+<body>
+<div id="memory_board"></div>
+<script>newBoard();</script>
+
+</body>
 </html>
